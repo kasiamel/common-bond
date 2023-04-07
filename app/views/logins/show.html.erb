@@ -1,0 +1,5 @@
+<%= form_with local: true, url: login_path, action: :create do |f| %>
+  <%= f.email_field(:email, placeholder: "Email", required: true) %>
+  <%= f.password_field(:password, placeholder: "Password", required: true) %>
+  <%= f.submit("LOG IN") %>
+<% end %>

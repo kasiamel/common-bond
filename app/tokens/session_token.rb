@@ -1,0 +1,2 @@
+class SessionToken < ResourceToken
+end
