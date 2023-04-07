@@ -1,0 +1,27 @@
+AllCops:
+  TargetRubyVersion: 3.1.3
+  NewCops: disable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - bin/*
+    - db/**/*
+    - config/**/*
+    - vendor/**/*
+    - Gemfile
+
+Layout/LineLength:
+  Max: 90
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/HashSyntax: 
+  Enabled: false

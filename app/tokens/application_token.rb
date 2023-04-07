@@ -6,7 +6,7 @@ class ApplicationToken
   private
 
   def payload
-    { type: type, exp: expires_at.to_i }
+    { type:, exp: expires_at.to_i }
   end
 
   def type
@@ -17,4 +17,3 @@ class ApplicationToken
     48.hours.from_now
   end
 end
-  

@@ -1,6 +1,5 @@
 class LoginsController < ApplicationController
-  def show
-  end
+  def show; end
 
   def create
     @session = create_session

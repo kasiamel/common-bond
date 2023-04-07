@@ -25,7 +25,7 @@ RSpec.describe 'Logins' do
     let(:params) { { email: user.email, password: user.password } }
     let(:session_cookie) { cookies.get_cookie('session_cookie') }
 
-    subject! { post path, params: params, headers: headers }
+    subject! { post path, params: params }
 
     it 'redirects to dashboard_path' do
       expect(response).to redirect_to(dashboard_path)
