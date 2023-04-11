@@ -19,6 +19,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryBot::Syntax::Methods
+  config.include ActiveSupport::Testing::TimeHelpers
 
   def load_json_fixture(name)
     data = file_fixture("../#{name}.json").read

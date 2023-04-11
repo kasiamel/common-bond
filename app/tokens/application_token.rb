@@ -1,12 +1,12 @@
 class ApplicationToken
   def generate
-    JWT.encode(payload, nil)
+    JWT.encode(payload, ENV.fetch('HMAC_SECRET'), 'HS256')
   end
 
   private
 
   def payload
-    { type:, exp: expires_at.to_i }
+    { type: type, exp: expires_at.to_i }
   end
 
   def type
