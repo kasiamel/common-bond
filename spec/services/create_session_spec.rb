@@ -13,11 +13,19 @@ RSpec.describe CreateSession do
     end
   end
 
-  context 'when provided with invalid credentials' do
-    let(:password) { 'not-exist-email@email.com' }
+  context 'when provided with an invalid email' do
+    let(:email) { 'no-exist-email@example.com' }
 
-    it 'does not return a session' do
-      expect(subject).not_to be_a(Session)
+    it 'raises an error' do
+      expect { subject.call }.to raise_error(ResponseError)
+    end
+  end
+
+  context 'when provided with an invalid password' do
+    let(:password) { 'invalid' }
+
+    it 'raises an error' do
+      expect { subject.call }.to raise_error(ResponseError)
     end
   end
 end

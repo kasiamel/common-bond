@@ -5,7 +5,7 @@ class CreateSession
   end
 
   def call
-    generate_session if password_valid?
+    password_valid? ? generate_session : raise_error
   end
 
   private
@@ -20,5 +20,9 @@ class CreateSession
 
   def generate_session
     Session.new(user)
+  end
+
+  def raise_error
+    raise ResponseError, :forbidden
   end
 end
