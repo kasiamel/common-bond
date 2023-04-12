@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   resource :login, only: [:show, :create, :destroy]
   resource :dashboard, only: :show
+
+  get 'logout', to: 'logins#destroy', as: :logout
 end
