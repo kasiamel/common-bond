@@ -11,6 +11,14 @@
   </head>
 
   <body>
+      <% unless params[:controller] == 'logins' %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <% flash.each do |type, msg| %>
+        <div class="alert flash-<%= type %>">
+          <%= msg %>
+        </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

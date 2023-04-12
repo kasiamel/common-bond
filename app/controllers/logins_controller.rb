@@ -6,7 +6,9 @@ class LoginsController < ApplicationController
   end
 
   def create
-    return unless session.present?
+    @session = create_session
+
+    return unless @session.present?
 
     cookies[:session_cookie] = @session.cookie
     redirect_to dashboard_path
@@ -20,7 +22,7 @@ class LoginsController < ApplicationController
 
   private
 
-  def session
+  def create_session
     @session ||= CreateSession.new(params[:email], params[:password]).call
   end
 
