@@ -1,19 +1,21 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user
-
   rescue_from ResponseError do
     action
   end
 
-  attr_reader :current_user
-
   private
-
-  def authenticate_user
-    @current_user = VerifyToken.new(cookies[:session_cookie], :session).call
-  end
 
   def action
     redirect_to login_path
+  end
+
+  def submit_form(form)
+    if form.validate(params.to_unsafe_hash)
+      form.save
+      redirect_to form.model
+    else
+      flash.now[:alert] = form.errors.to_a.join(', ')
+      render action: 'create', status: :bad_request
+    end
   end
 end

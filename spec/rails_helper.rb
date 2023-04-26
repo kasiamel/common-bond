@@ -11,8 +11,10 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
+
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = "#{::Rails.root}/spec/fixtures/files"
 
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
@@ -20,6 +22,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include RequestHelpers, type: :request
 
   def load_json_fixture(name)
     data = file_fixture("../#{name}.json").read

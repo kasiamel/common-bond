@@ -1,4 +1,4 @@
-class LoginsController < ApplicationController
+class LoginsController < BaseController
   skip_before_action :authenticate_user, only: :create
 
   def show
