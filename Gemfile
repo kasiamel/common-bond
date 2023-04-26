@@ -22,6 +22,8 @@ gem 'bootsnap', '~> 1.16'
 gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 gem 'jwt', '~> 2.7'
+gem 'reform', '~> 2.6', '>= 2.6.2'
+gem 'reform-rails', '~> 0.2.3'
 
 group :development, :test do
   gem 'byebug', '~> 11.1', '>= 11.1.3'
@@ -29,4 +31,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 3.1', '>= 3.1.1'
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
 end

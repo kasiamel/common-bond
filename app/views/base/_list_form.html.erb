@@ -1,0 +1,6 @@
+<h5>Create list:</h5>
+<%= form_with local: true, url: list_path, action: :create do |f| %>
+  <%= f.text_field(:name, placeholder: "List name", required: true) %>
+  <%= f.text_field(:description, placeholder: "Description") %>
+  <%= f.submit("Create") %>
+<% end %>
